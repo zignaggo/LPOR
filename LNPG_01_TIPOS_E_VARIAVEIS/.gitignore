@@ -1,0 +1,5 @@
+*.exe
+output
+*.class
+\.vscode
+*.code-workspace
