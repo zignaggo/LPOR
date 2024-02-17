@@ -1,0 +1,1 @@
+module LNPG_01_TIPOS_E_VARIAVEIS.WeightedAverage where
