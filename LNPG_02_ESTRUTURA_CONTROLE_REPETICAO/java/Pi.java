@@ -6,24 +6,15 @@ public class Pi {
     public static void main(String[] args) {
         try (Scanner scan = new Scanner(System.in)) {
             System.out.print("Quantos termos deseja?");
-            int n = scan.nextInt();
-            double s = 0;
-            boolean sum = true;
-            double division = 1;
-            for (int i = 0; i <= n*2; i++) {
-                if (i % 2 != 0) {
-                    division = Math.pow(i, 3); // 1,3 -> 1³;
-                    if (sum) {
-                        s += (1 / division); 
-                        sum = false;
-                    } else {
-                        s -= (1 / division);
-                        sum = true;
-                    }
-                }
+            int terms = scan.nextInt();
+            double sum = 0;
+            double denominator = 1;
+            for (int i = 0; i < terms; i++) {
+                sum = i % 2 == 0 ? sum + (1 / Math.pow(denominator, 3)) : sum - (1 / Math.pow(denominator, 3));
+                denominator+=2;
             }
-            double pi = Math.cbrt((s*32));
-            System.out.printf("\npi = %f", pi);
+            double pi = Math.cbrt(sum * 32);
+            System.out.printf("pi = %.6f", pi);
         } catch (Exception e) {}
     }
 }
