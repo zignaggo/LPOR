@@ -16,8 +16,7 @@ public class EducativeGames {
                 // ela recebe 50% do valor total das vendas
                 gamesToBonus++;
                 if (gamesToBonus == 15) {
-                    double bonus = totalSelled * 0.08;
-                    totalBonus += bonus;
+                    totalBonus += totalSelled * 0.08;
                     gamesToBonus = 0;
                 }
                 totalSelled += 19.90;
