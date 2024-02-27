@@ -11,9 +11,6 @@ public class EducativeGames {
             double totalSelled = 0;
             double totalBonus = 0;
             for (int i = 0; i < games; i++) {
-                // cada 15 games 8% do valor de cada game
-                // cada game custa 19.90
-                // ela recebe 50% do valor total das vendas
                 gamesToBonus++;
                 if (gamesToBonus == 15) {
                     totalBonus += totalSelled * 0.08;
@@ -24,10 +21,6 @@ public class EducativeGames {
             System.out.printf("Total ganhos: R$%.2f", totalSelled);
             System.out.printf("\nTotal bonus: R$%.2f", totalBonus);
             System.out.printf("\nTotal all: R$%.2f", totalSelled + totalBonus);
-            // Escreva um programa que receba como entrada a quantidade de jogos vendidos esse mês por Catarina e exiba três valores: o valor total arrecadado em vendas, o valor ganho como bônus, e o valor total que Catarina receberá no mês.
-            
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
+        } catch (Exception e) {}
     }
 }
