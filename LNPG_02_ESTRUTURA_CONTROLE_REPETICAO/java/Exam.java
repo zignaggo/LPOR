@@ -1,16 +1,15 @@
 package LNPG_02_ESTRUTURA_CONTROLE_REPETICAO.java;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 public class Exam {
     public static void main(String[] args) {
         try (Scanner scan = new Scanner(System.in)) {
-            String answers = "1234554321";
+            final String answers = "1234554321";
             System.out.print("\nDigite o número de participantes: ");
-            int numberParticipants = scan.nextInt();
+            final int numberParticipants = scan.nextInt();
             int mark = 0;
             ArrayList<ArrayList<String>> participants = new ArrayList<>();
             for (int i = 0; i < numberParticipants; i++) {
@@ -31,22 +30,33 @@ public class Exam {
                 participants.add(participant);
                 mark = 0;
             }
-            // FIX-ME
-            List<ArrayList<String>> alfabeticOrderedParticipants = participants.stream()
-                    .sorted((a, b) -> {
-                        var first = a.get(0);
-                        var second = b.get(0);
-                        return first.compareTo(second);
-                    })
-                    .toList(); 
-            Stream.of(alfabeticOrderedParticipants)
-                    .forEach(
-                            participant -> System.out.printf("Aluno: %s | %s Acertos", participant.get(0),
-                                    participant.get(1)));
-            // System.out.printf("Maior pontuação foi do %s com a nota de %s acertos",
-            // markOrderedParticipants[0][0], markOrderedParticipants[0][1]);
-            // System.out.printf("Menor pontuação foi do %s com a nota de %s acertos",
-            // markOrderedParticipants[2][0], markOrderedParticipants[2][1]);
+            ArrayList<ArrayList<String>> alfabeticOrderedParticipants = participants.stream()
+                    .sorted((a, b) -> a.get(0).compareTo(b.get(0)))
+                    .collect(Collectors.toCollection(ArrayList::new));
+            ArrayList<ArrayList<String>> orderedMarkParticipants = participants.stream()
+                    .sorted((a, b) -> Integer.compare(Integer.parseInt(a.get(1)), Integer.parseInt(b.get(1))))
+                    .collect(Collectors.toCollection(ArrayList::new));
+            int moreThenHalfCorrect = 0;
+            for (ArrayList<String> participant : orderedMarkParticipants) {
+                if (Integer.parseInt(participant.get(1)) > 5) {
+                    moreThenHalfCorrect++;
+                }
+            }
+            double percentual = (moreThenHalfCorrect / orderedMarkParticipants.size()) * 100;
+            for (ArrayList<String> participant : alfabeticOrderedParticipants) {
+                System.out.printf("Aluno: %s -> %s Acertos\n", participant.get(0),
+                        participant.get(1));
+            }
+            ArrayList<String> betterMark = orderedMarkParticipants.get(orderedMarkParticipants.size() - 1);
+            ArrayList<String> worseMark = orderedMarkParticipants.get(0);
+            System.out.printf("\nMenor pontuação foi do %s com a nota de %s acertos",
+                    worseMark.get(0), worseMark.get(1));
+            System.out.printf("\nMaior pontuação foi do %s com a nota de %s acertos",
+                    betterMark.get(0),
+                    betterMark.get(1));
+            System.out.printf("\nPorcentagem de quantos acertaram mais que a metade da prova: %.2f %%",
+                    percentual);
+
         } catch (Exception e) {
             System.out.println(e);
             // A lista de participantes e suas respectivas notas em ordem alfabética;
