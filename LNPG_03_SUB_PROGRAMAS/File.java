@@ -9,7 +9,7 @@ public class File {
     static int getFirstOcurranceWord(List<String> lines, String word) {
         for (int i = 0; i < lines.size(); i++) {
             for (int ii = 0; ii < lines.get(i).split(" ").length; ii++) {
-                if (lines.get(i).split(" ")[ii].contains(word)) {
+                if (lines.get(i).split(" ")[ii].toLowerCase().contains(word)) {
                     return i;
                 }
             }
