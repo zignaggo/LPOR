@@ -61,9 +61,4 @@ public class Employee {
         builder.append("]");
         return builder.toString();
     }
-
-    public static void main(String[] args) {
-        Employee employee = new Employee("Alvacy", 1, null, 0, null);
-        System.out.println(employee.toString());
-    }
 }

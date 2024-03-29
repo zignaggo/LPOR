@@ -37,6 +37,14 @@ public class Department {
         this.employees.remove(employee);
     }
 
+    public String getEmployeesInfo() {
+        StringBuilder builder = new StringBuilder();
+        this.employees.forEach((employee) -> {
+            builder.append(employee.toString());
+        });
+        return builder.toString();
+    }
+
     public String getInfo() {
         StringBuilder builder = new StringBuilder();
         builder.append("Department [name=");
@@ -51,13 +59,5 @@ public class Department {
     @Override
     public String toString() {
         return this.getInfo();
-    }
-
-    public static void main(String[] args) {
-        Department departament1 = new Department("Departament 1", 12, "Casa do caralho");
-        Employee employee1 = new Employee("Jorge", 1, "Estagiário", 1412, departament1);
-        departament1.addEmployee(employee1);
-        System.out.println(departament1.toString());
-        System.out.println(departament1.getEmployees());
     }
 }

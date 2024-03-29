@@ -33,26 +33,11 @@ public class Chess {
         }
         return true;
     }
-    // @Override
-    // public String toString() {
-    //     /*
-    //      * ----------------------------------------------------------
-    //      *  | Other| Other| Other| Other| Other| Other| Other| Other|
-    //      *  | pawn | pawn | pawn | pawn | pawn | pawn | pawn | pawn |
-    //      *  |  X   |   X  |  X   |   X  |  X   |   X  |  X   |   X  |
-    //      *  |  X   |   X  |  X   |   X  |  X   |   X  |  X   |   X  |  
-    //      *  |  X   |   X  |  X   |   X  |  X   |   X  |  X   |   X  |
-    //      *  |  X   |   X  |  X   |   X  |  X   |   X  |  X   |   X  |
-    //      *  | pawn | pawn | pawn | pawn | pawn | pawn | pawn | pawn |
-    //      *  | Other| Other| Other| Other| Other| Other| Other| Other|
-    //      * ----------------------------------------------------------
-    //      */
+    // public static void main(String[] args) {
+    //     Chess myChess = new Chess();
+    //     Piece myPiece = myChess.getPiece(1, 0);
+    //     System.out.println(myChess.checkCanMove(myPiece, 1, 1)); // false cause is friend
+    //     System.out.println(myChess.checkCanMove(myPiece, 2, 0)); // true cause is null
+    //     System.out.println(myChess.checkCanMove(myPiece, 6, 0)); // true cause is enemy
     // }
-    public static void main(String[] args) {
-        Chess myChess = new Chess();
-        Piece myPiece = myChess.getPiece(1, 0);
-        System.out.println(myChess.checkCanMove(myPiece, 1, 1)); // false cause is friend
-        System.out.println(myChess.checkCanMove(myPiece, 2, 0)); // true cause is null
-        System.out.println(myChess.checkCanMove(myPiece, 6, 0)); // true cause is enemy and catch
-    }
 }

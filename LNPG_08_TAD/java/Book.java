@@ -74,20 +74,4 @@ public class Book {
     public String toString() {
         return this.getInfo();
     }
-
-    public static void main(String[] args) {
-        Book book1 = new Book("A ida dos que não vão", "Zignago");
-        Book book2 = new Book("A ida dos que não vão", "Zignago", 2002, 0);
-        book1.setPublishedYear(1995);
-        book1.setAvailableCopys(1_000_000);
-        System.out.println(book1.getInfo());
-        System.out.println(book2.getInfo());
-        try {
-            System.out.printf("Old copys: %d\n", book2.getAvailableCopys());
-            book2.toLend();
-            System.out.printf("\nnew copys: %d", book2.getAvailableCopys());
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
 }
