@@ -8,7 +8,6 @@ public class ControleEstoque {
     private static Map<String, Integer> estoque = new HashMap<>();
 
     private static void adicionarProduto(String nome, int quantidade) throws Exception {
-        System.out.println(nome);
         if (quantidade <= 0) {
             throw new Exception("A quantidade precisa ser maior que 0");
         }
@@ -44,8 +43,6 @@ public class ControleEstoque {
     private static String lerNome(Scanner scanner) {
         System.out.print("Digite o nome do produto: ");
         String nome = scanner.nextLine();
-        System.out.println(nome);
-        scanner.nextLine();
         return nome;
     }
 
@@ -62,6 +59,7 @@ public class ControleEstoque {
             while (true) {
                 exibirMenu();
                 int opcao = scanner.nextInt();
+                scanner.nextLine();
                 try {
                     switch (opcao) {
                         case 1:
