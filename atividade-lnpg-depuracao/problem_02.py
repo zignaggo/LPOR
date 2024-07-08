@@ -2,7 +2,8 @@
 
 def max_subarray_sum(arr, k):
     n = len(arr)
-    if n < k:
+    # Correção: validação se é maior que 0 e menor que o tamanho da lista
+    if not 0 < k <= n:
         print("Invalid input")
         return -1
 
