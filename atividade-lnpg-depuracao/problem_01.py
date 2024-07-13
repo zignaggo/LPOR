@@ -24,7 +24,9 @@ def find_max(numbers):
 
 def get_numbers():
     numbers = input("Enter numbers separated by spaces: ").split()
-    numbers = [int(num) for num in numbers]
+    # Correção: Utilizar float em vez de int
+    # Erro tratado: invalid literal for int() with base 10: '1.0'
+    numbers = [float(num) for num in numbers]
     return numbers
 
 

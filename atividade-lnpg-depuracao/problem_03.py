@@ -1,8 +1,6 @@
 # Declaração do problema: Dadas duas matrizes, multiplique-as e retorne a matriz resultante.
 
 def matrix_multiply(A, B):
-    print(A)
-    print(B)
     rows_A = len(A)
     cols_A = len(A[0])
     rows_B = len(B)
